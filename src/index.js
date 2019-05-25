@@ -27,7 +27,7 @@ const WeatherIcon = (props) => {
 };
 
 WeatherIcon.propTypes = {
-  name: PropTypes.oneOf(['owm', 'darksky', 'yahoo']).isRequired,
+  name: PropTypes.oneOf(['def', 'owm', 'darksky', 'yahoo']).isRequired,
   className: PropTypes.string,
   iconId: PropTypes.string.isRequired,
   flip: PropTypes.oneOf(['horizontal', 'vertical']),

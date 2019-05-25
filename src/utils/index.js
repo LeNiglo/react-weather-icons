@@ -1,7 +1,14 @@
-import { owmIcons, yahooIcons, darkSkyIcons } from './maps';
+import { defaultIcons, owmIcons, yahooIcons, darkSkyIcons } from './maps';
 
 
 var helper = (function() {
+  var convertDefaultCode = function(id) {
+    if(defaultIcons[id]) {
+      let prefix = 'wi wi-';
+      return prefix + defaultIcons[id].icon;
+    }
+    throw new Error('ID passed to component invalid');
+  };
   var convertDarkSkyCode = function(id) {
     if(darkSkyIcons[id]) {
       return darkSkyIcons[id].icon;
@@ -32,6 +39,8 @@ var helper = (function() {
 
   var convertCode = function(name, id) {
     switch(name) {
+      case 'def':
+        return convertDefaultCode(id);
       case 'owm':
         return convertOWMCode(id);
       case 'darksky':

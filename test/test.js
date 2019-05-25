@@ -8,6 +8,18 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('WeatherIcon', () => {
 
+  describe('default component', () => {
+    let wrapper;
+    it('should have name def', () => {
+      wrapper = shallow(<WeatherIcon name='def' iconId="celsius" />);
+      expect(wrapper.props().name).to.equal('def');
+    });
+    it('should map appropriate className with ID celsius for def', () => {
+      wrapper = shallow(<WeatherIcon name='def' iconId="celsius" />);
+      expect(wrapper.props().className).to.equal('wi wi-celsius');
+    });
+  });
+
   describe('open weather map component', () => {
     let wrapper;
     it('should have name owm', () => {
@@ -15,7 +27,6 @@ describe('WeatherIcon', () => {
       expect(wrapper.props().name).to.equal('owm');
     });
     it('should map appropriate className with ID 200 for owm', () => {
-
       wrapper = shallow(<WeatherIcon name='owm' iconId="200" />);
       expect(wrapper.props().className).to.equal('wi wi-day-storm-showers');
     });
@@ -28,7 +39,6 @@ describe('WeatherIcon', () => {
       expect(wrapper.props().name).to.equal('yahoo');
     });
     it('should map appropriate className with ID 0 for yahoo', () => {
-
       wrapper = shallow(<WeatherIcon name='yahoo' iconId='0' />);
       expect(wrapper.props().className).to.equal('wi wi-yahoo-0');
     });
